@@ -1,0 +1,37 @@
+*-----------------------------------------------------------
+* Title      : Reverse a String in Memory using Motorola 68000 Assembly Instructions
+* Written by : Zakaria B.
+* Date       : 10/01/2023
+* Description:
+*-----------------------------------------------------------
+    ORG    $1000
+START:                 
+ORG	$1000
+START:
+
+	LEA	TAB_INT(PC), A0
+	MOVE.B	#0, D1		
+CHANGER_D1
+	MOVE.B (A0), D1
+	BRA COMPARER
+	
+
+COMPARER
+	CMP.B	(A0), D1
+	BLT	CHANGER_D1
+	CMP 	(A0),$0		
+	BNE	COMPARER
+	
+	
+	
+	SIMHALT
+
+TAB_INT	DC.B	24,36,2,45,10,$0
+
+
+	END START
+
+*~Font name~Courier New~
+*~Font size~10~
+*~Tab type~1~
+*~Tab size~4~
